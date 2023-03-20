@@ -1,6 +1,4 @@
 import "express-async-errors";
-import "reflect-metadata";
-import "dotenv/config";
 import express from "express";
 
 const app = express();
