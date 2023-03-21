@@ -14,8 +14,7 @@ export const clientUpdateService = async (
   if (!findClient) {
     throw new AppError(404, "Client not exist");
   }
-  console.log(findClient);
-  console.log(clientData);
+
   const updateClient = clientRepository.create({
     ...findClient,
     ...clientData,

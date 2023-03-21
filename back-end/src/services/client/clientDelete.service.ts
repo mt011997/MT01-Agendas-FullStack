@@ -7,7 +7,7 @@ export const deleteClientService = async (id: string) => {
   });
 
   if (!clientFind) {
-    throw new AppError(404, "Client not fount");
+    throw new AppError(404, "Client not found");
   }
 
   if (!clientFind.isActive) {
