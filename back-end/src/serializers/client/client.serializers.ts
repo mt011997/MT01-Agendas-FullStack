@@ -1,4 +1,5 @@
 import * as yup from "yup";
+
 import { iClient, iClientRequest } from "../../interfaces/client.interfaces";
 import { returnContactSerializer } from "../contacts/contact.serializer";
 
@@ -13,6 +14,8 @@ export const createClientSerializer: yup.Schema<iClientRequest> = yup
 
 export const returnClientSerializer: yup.Schema<iClient> = yup.object().shape({
   contacts: yup.array(returnContactSerializer),
+  isAdm: yup.boolean().notRequired(),
+  isActive: yup.boolean().notRequired(),
   created_at: yup.date().notRequired(),
   phone: yup.string().notRequired(),
   email: yup.string().email().notRequired(),

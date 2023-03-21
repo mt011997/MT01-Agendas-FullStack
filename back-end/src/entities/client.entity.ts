@@ -24,6 +24,12 @@ export default class Client {
   @Column({ length: 100 })
   password: string;
 
+  @Column({ default: false })
+  isAdm: boolean;
+
+  @Column({ default: true })
+  isActive: boolean;
+
   @Column({ length: 15, unique: true })
   phone: string;
 
