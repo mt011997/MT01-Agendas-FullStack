@@ -24,13 +24,19 @@ export default class Client {
   @Column({ length: 100 })
   password: string;
 
+  @Column({ default: false })
+  isAdm: boolean;
+
+  @Column({ default: true })
+  isActive: boolean;
+
   @Column({ length: 15, unique: true })
   phone: string;
 
   @CreateDateColumn()
   created_at: Date;
 
-  @OneToMany(() => Contact, (contact) => contact.id)
+  @OneToMany(() => Contact, (contact) => contact.client)
   contacts: Contact[];
 
   @BeforeInsert()

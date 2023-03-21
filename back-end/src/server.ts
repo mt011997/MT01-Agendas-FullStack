@@ -6,9 +6,7 @@ import { AppDataSource } from "./data-source";
     console.error("Error during Data Source initialization", err);
   });
 
-  const PORT = process.env.DB_PORT || 3000;
-
-  app.listen(PORT, () => {
-    console.log(`app is running on http://localhost:${PORT}`);
+  app.listen(3000, () => {
+    console.log(`app is running on http://localhost:3000}`);
   });
 })();
