@@ -2,14 +2,19 @@ export interface iContactRequest {
   full_name: string;
   email: string;
   phone: string;
-  clientId: string;
 }
 
 export interface iContact {
-  id?: string | null;
-  full_name?: string | null;
-  email?: string | null;
-  phone?: string | null;
-  created_at?: Date | null;
-  clientId?: string | null;
+  id?: string;
+  full_name?: string;
+  email?: string;
+  phone?: string;
+  created_at?: Date;
+  clientId?: string;
+}
+
+export interface iContactUpdate {
+  full_name?: string;
+  email?: string;
+  phone?: string;
 }
