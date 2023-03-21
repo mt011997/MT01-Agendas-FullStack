@@ -6,9 +6,16 @@ export interface iClientRequest {
 }
 
 export interface iClient {
-  id?: string | null;
-  full_name?: string | null;
-  email?: string | null;
-  phone?: string | null;
-  created_at?: Date | null;
+  id?: string;
+  full_name?: string;
+  email?: string;
+  phone?: string;
+  created_at?: Date;
+}
+
+export interface iClientUpdate {
+  full_name?: string;
+  email?: string;
+  password?: string;
+  phone?: string;
 }
