@@ -1,5 +1,5 @@
-import { AppError } from "../errors/errors";
-import { clientRepository } from "../repositories/clientRepository";
+import { AppError } from "../../errors/errors";
+import { clientRepository } from "../../repositories/clientRepository";
 
 export const deleteClientService = async (id: string) => {
   const clientFind = await clientRepository.findOneBy({

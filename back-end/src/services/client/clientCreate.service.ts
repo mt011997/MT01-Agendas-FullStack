@@ -1,7 +1,7 @@
-import { AppError } from "../errors/errors";
-import { iClient, iClientRequest } from "../interfaces/client.interfaces";
-import { clientRepository } from "../repositories/clientRepository";
-import { returnClientSerializer } from "../serializers/client/client.serializers";
+import { AppError } from "../../errors/errors";
+import { iClient, iClientRequest } from "../../interfaces/client.interfaces";
+import { clientRepository } from "../../repositories/clientRepository";
+import { returnClientSerializer } from "../../serializers/client/client.serializers";
 
 export const createClientService = async (
   data: iClientRequest

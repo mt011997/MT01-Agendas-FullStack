@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { createClientService } from "../../services/clientCreate.service";
+import { createClientService } from "../../services/client/clientCreate.service";
 
 export const createUserController = async (req: Request, res: Response) => {
   const user = req.body;
