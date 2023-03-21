@@ -1,8 +1,13 @@
 import { clientRepository } from "../../repositories/clientRepository";
 import jwt from "jsonwebtoken";
+import { AppError } from "../../errors/errors";
 
 export const loginService = async (email: string) => {
   const client = await clientRepository.findOneBy({ email });
+
+  if (!client?.isActive) {
+    throw new AppError(400, "Client is not active");
+  }
 
   const token = jwt.sign(
     {

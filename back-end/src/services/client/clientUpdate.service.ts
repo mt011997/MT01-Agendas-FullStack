@@ -15,6 +15,10 @@ export const clientUpdateService = async (
     throw new AppError(404, "Client not exist");
   }
 
+  if (!findClient.isActive) {
+    throw new AppError(400, "Client is not active");
+  }
+
   const updateClient = clientRepository.create({
     ...findClient,
     ...clientData,
