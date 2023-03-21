@@ -30,7 +30,7 @@ export default class Client {
   @CreateDateColumn()
   created_at: Date;
 
-  @OneToMany(() => Contact, (contact) => contact.id)
+  @OneToMany(() => Contact, (contact) => contact.client)
   contacts: Contact[];
 
   @BeforeInsert()

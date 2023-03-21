@@ -12,10 +12,12 @@ export const createClientSerializer: yup.Schema<iClientRequest> = yup
   });
 
 export const returnClientSerializer: yup.Schema<iClient> = yup.object().shape({
-  id: yup.string().uuid().notRequired(),
-  full_name: yup.string().notRequired(),
-  email: yup.string().email().notRequired(),
-  phone: yup.string().notRequired(),
-  created_at: yup.date().notRequired(),
   contacts: yup.array(returnContactSerializer),
+  created_at: yup.date().notRequired(),
+  phone: yup.string().notRequired(),
+  email: yup.string().email().notRequired(),
+  full_name: yup.string().notRequired(),
+  id: yup.string().uuid().notRequired(),
 });
+
+export const listClients = yup.array(returnClientSerializer);

@@ -22,7 +22,7 @@ export default class Contact {
   phone: string;
 
   @ManyToOne(() => Client, { onDelete: "CASCADE" })
-  user: Client;
+  client: Client;
 
   @CreateDateColumn()
   created_at: Date;

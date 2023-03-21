@@ -1,9 +1,11 @@
 import { AppError } from "../errors/errors";
-import { iClientRequest } from "../interfaces/client.interfaces";
+import { iClient, iClientRequest } from "../interfaces/client.interfaces";
 import { clientRepository } from "../repositories/clientRepository";
 import { returnClientSerializer } from "../serializers/client/client.serializers";
 
-export const createClientService = async (data: iClientRequest) => {
+export const createClientService = async (
+  data: iClientRequest
+): Promise<iClient> => {
   const findClient = await clientRepository.findOneBy({ email: data.email });
   const findPhone = await clientRepository.findOneBy({ phone: data.phone });
 
