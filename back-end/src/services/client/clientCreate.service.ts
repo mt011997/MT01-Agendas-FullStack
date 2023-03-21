@@ -1,7 +1,7 @@
-import { AppError } from "../errors/errors";
-import { iClient, iClientRequest } from "../interfaces/client.interfaces";
-import { clientRepository } from "../repositories/clientRepository";
-import { returnClientSerializer } from "../serializers/client/client.serializers";
+import { AppError } from "../../errors/errors";
+import { iClient, iClientRequest } from "../../interfaces/client.interfaces";
+import { clientRepository } from "../../repositories/clientRepository";
+import { returnClientSerializer } from "../../serializers/client/client.serializers";
 
 export const createClientService = async (
   data: iClientRequest
@@ -9,7 +9,7 @@ export const createClientService = async (
   const findClient = await clientRepository.findOneBy({ email: data.email });
   const findPhone = await clientRepository.findOneBy({ phone: data.phone });
 
-  if (findClient) throw new AppError(409, "email already exists");
+  if (findClient) throw new AppError(409, "Email already exists");
 
   if (findPhone) throw new AppError(409, "Phone already exists");
 

@@ -1,5 +1,5 @@
-import { clientRepository } from "../repositories/clientRepository";
-import { listClients } from "../serializers/client/client.serializers";
+import { clientRepository } from "../../repositories/clientRepository";
+import { listClients } from "../../serializers/client/client.serializers";
 
 export const listAllClientsService = async () => {
   const clients = await clientRepository.find({

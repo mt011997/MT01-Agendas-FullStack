@@ -1,6 +1,10 @@
 import * as yup from "yup";
 
-import { iClient, iClientRequest } from "../../interfaces/client.interfaces";
+import {
+  iClient,
+  iClientRequest,
+  iClientUpdate,
+} from "../../interfaces/client.interfaces";
 import { returnContactSerializer } from "../contacts/contact.serializer";
 
 export const createClientSerializer: yup.Schema<iClientRequest> = yup
@@ -14,13 +18,22 @@ export const createClientSerializer: yup.Schema<iClientRequest> = yup
 
 export const returnClientSerializer: yup.Schema<iClient> = yup.object().shape({
   contacts: yup.array(returnContactSerializer),
-  isAdm: yup.boolean().notRequired(),
-  isActive: yup.boolean().notRequired(),
-  created_at: yup.date().notRequired(),
-  phone: yup.string().notRequired(),
-  email: yup.string().email().notRequired(),
-  full_name: yup.string().notRequired(),
-  id: yup.string().uuid().notRequired(),
+  isAdm: yup.boolean(),
+  isActive: yup.boolean(),
+  created_at: yup.date(),
+  phone: yup.string(),
+  email: yup.string().email(),
+  full_name: yup.string(),
+  id: yup.string().uuid(),
 });
+
+export const clientSerializerUpdate: yup.Schema<iClientUpdate> = yup
+  .object()
+  .shape({
+    password: yup.string(),
+    phone: yup.string(),
+    email: yup.string().email(),
+    full_name: yup.string(),
+  });
 
 export const listClients = yup.array(returnClientSerializer);

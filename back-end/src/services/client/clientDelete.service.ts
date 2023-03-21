@@ -1,5 +1,5 @@
-import { AppError } from "../errors/errors";
-import { clientRepository } from "../repositories/clientRepository";
+import { AppError } from "../../errors/errors";
+import { clientRepository } from "../../repositories/clientRepository";
 
 export const deleteClientService = async (id: string) => {
   const clientFind = await clientRepository.findOneBy({
@@ -7,7 +7,7 @@ export const deleteClientService = async (id: string) => {
   });
 
   if (!clientFind) {
-    throw new AppError(404, "Client not fount");
+    throw new AppError(404, "Client not found");
   }
 
   if (!clientFind.isActive) {
