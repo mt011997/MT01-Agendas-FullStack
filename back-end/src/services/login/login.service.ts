@@ -9,6 +9,10 @@ export const loginService = async (email: string) => {
     throw new AppError(400, "Client is not active");
   }
 
+  if (!client) {
+    throw new AppError(404, "Client not found");
+  }
+
   const token = jwt.sign(
     {
       isAdm: client?.isAdm,
