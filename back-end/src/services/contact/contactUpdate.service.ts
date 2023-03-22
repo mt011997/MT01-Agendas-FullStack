@@ -10,9 +10,7 @@ export const contactUpdateService = async (
   const findContact = await contactRepository.findOneBy({
     id: contactId,
   });
-  console.log(contactData);
-  console.log(contactId);
-  console.log(findContact);
+
   if (!findContact) {
     throw new AppError(404, "Contact not exist");
   }
