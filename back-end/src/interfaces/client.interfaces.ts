@@ -19,3 +19,8 @@ export interface iClientUpdate {
   password?: string;
   phone?: string;
 }
+
+export interface iClientLogin {
+  email: string;
+  password: string;
+}
