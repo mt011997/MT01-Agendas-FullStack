@@ -1,7 +1,12 @@
-import "./App.css";
+import { CadastroProvider } from "./contexts/contextCadastro";
+import { RoutesMain } from "./routes";
 
 function App() {
-  return <h1>Oi</h1>;
+  return (
+    <CadastroProvider>
+      <RoutesMain />
+    </CadastroProvider>
+  );
 }
 
 export default App;
