@@ -1,3 +1,5 @@
+import { iContact } from "./contact.interface";
+
 export interface iClientRequest {
   full_name: string;
   email: string;
@@ -11,6 +13,7 @@ export interface iClient {
   email?: string;
   phone?: string;
   created_at?: Date;
+  contacts?: iContact[];
 }
 
 export interface iClientUpdate {

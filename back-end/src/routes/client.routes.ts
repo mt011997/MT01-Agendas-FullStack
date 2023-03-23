@@ -8,7 +8,6 @@ import { ensureCorrectUpdateMiddleware } from "../middlewares/correctUpdate.midd
 import { ensureAuthMiddlreware } from "../middlewares/ensureAuth.middleware";
 import { isAdmMiddleware } from "../middlewares/isAdm.middleware";
 import validateSchemaMiddleware from "../middlewares/validateSchema.middleware";
-import { validateUserPermissionMiddleware } from "../middlewares/validateUserPermission.middleware";
 import {
   clientSerializerUpdate,
   createClientSerializer,
@@ -29,24 +28,13 @@ clientRoutes.get(
   listAllClientsController
 );
 
-clientRoutes.get(
-  "/:id",
-  ensureAuthMiddlreware,
-  validateUserPermissionMiddleware,
-  listClientIdController
-);
+clientRoutes.get("/list", ensureAuthMiddlreware, listClientIdController);
 
-clientRoutes.delete(
-  "/:id",
-  ensureAuthMiddlreware,
-  validateUserPermissionMiddleware,
-  deleteClientController
-);
+clientRoutes.delete("/delete", ensureAuthMiddlreware, deleteClientController);
 
 clientRoutes.patch(
-  "/:id",
+  "/update",
   ensureAuthMiddlreware,
-  validateUserPermissionMiddleware,
   validateSchemaMiddleware(clientSerializerUpdate),
   ensureCorrectUpdateMiddleware,
   updateClientController

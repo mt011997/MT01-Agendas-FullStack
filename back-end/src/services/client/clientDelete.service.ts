@@ -14,10 +14,8 @@ export const deleteClientService = async (id: string) => {
     throw new AppError(400, "Client is not active");
   }
 
-  const clientDelete = await clientRepository.save({
+  await clientRepository.save({
     ...clientFind,
     isActive: false,
   });
-
-  return {};
 };
