@@ -3,8 +3,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { formSchema } from "../../schemas";
 import { CadastroContext, iCadastroData } from "../../contexts/contextCadastro";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { Form } from "react-router-dom";
 import { useContext } from "react";
+import { ContainerForm, DivSenha, Form } from "./styled";
 
 export const FormCadastro = () => {
   const {
@@ -15,12 +15,12 @@ export const FormCadastro = () => {
     resolver: yupResolver(formSchema),
   });
 
-  const { toggleShowSenha, showSenha } = useContext(CadastroContext);
+  const { toggleShowSenha, showSenha, onSubmit } = useContext(CadastroContext);
 
   return (
-    <div>
+    <ContainerForm>
       <h2>Crie sua conta</h2>
-      <Form onSubmit={handleSubmit()}>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="full_name">Nome Completo</label>
         <input
           type="text"
@@ -58,7 +58,9 @@ export const FormCadastro = () => {
           {...register("phone")}
         />
         <span>{errors.phone?.message}</span>
+
+        <button type="submit">Cadastrar</button>
       </Form>
-    </div>
+    </ContainerForm>
   );
 };
