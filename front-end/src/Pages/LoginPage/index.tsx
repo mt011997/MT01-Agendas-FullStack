@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";
-import { FormCadastro } from "../../components/FormCadastro";
+import { FormLogin } from "../../components/FormLogin";
 import { Load } from "../../components/LoadingScreen";
 import { LoginContext } from "../../contexts/contextLogin";
 
-export const Cadastro = () => {
+export const Login = () => {
   const { client, loading } = useContext(LoginContext);
 
   if (loading) {
@@ -12,8 +12,6 @@ export const Cadastro = () => {
   }
 
   return (
-    <div>
-      {!client ? <FormCadastro /> : <Navigate to="/homepage" replace />}
-    </div>
+    <div>{!client ? <FormLogin /> : <Navigate to="/homepage" replace />}</div>
   );
 };
