@@ -77,9 +77,10 @@ export const Form = styled.form`
   }
   a {
     width: 100%;
-    padding: 15px;
-    font-size: 14px;
-    font-weight: 500;
+    text-align: center;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: 300;
     background-color: var(--Gray-1);
     border-radius: 3px;
     cursor: pointer;

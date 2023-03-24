@@ -6,6 +6,7 @@ export const ContainerGeral = styled.div`
   margin: auto;
   max-height: 95vh;
   font-family: "Inter", sans-serif;
+  padding-top: 2rem;
 `;
 
 export const ContainerForm = styled.div`
@@ -17,12 +18,30 @@ export const ContainerForm = styled.div`
   padding: 10px;
   border-radius: 3px;
   h2 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
     font-size: 16px;
     font-weight: bold;
   }
   p {
+    padding: 1rem;
     font-size: 10px;
     color: var(--Gray-1);
+    text-align: center;
+  }
+  a {
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: 300;
+    background-color: var(--Gray-1);
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--Gray-0);
+    margin-bottom: 1rem;
   }
 `;
 export const Form = styled.form`
@@ -71,7 +90,7 @@ export const Form = styled.form`
   button {
     margin-top: 10px;
     width: 100%;
-    height: 25px;
+    height: 35px;
     font-size: 12px;
     font-weight: 500;
     background-color: var(--Color-primary-Negative);
@@ -82,6 +101,7 @@ export const Form = styled.form`
   }
   span {
     color: var(--Negative);
+    display: flex;
     font-size: 10px;
     margin-top: -12px;
     margin-left: 5px;
