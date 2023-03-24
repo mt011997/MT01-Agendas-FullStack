@@ -21,6 +21,7 @@ interface iLoginContext {
   onSubmit: (data: iLoginData) => Promise<void>;
   client: iClient | null;
   loading: boolean;
+  setClient: React.Dispatch<React.SetStateAction<iClient | null>>;
 }
 
 export const LoginContext = createContext({} as iLoginContext);
@@ -69,6 +70,7 @@ export const LoginProvider = ({ children }: iContextProps) => {
         onSubmit,
         client,
         loading,
+        setClient,
       }}
     >
       {children}
