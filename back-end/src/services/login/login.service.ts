@@ -24,5 +24,5 @@ export const loginService = async (email: string) => {
     }
   );
 
-  return { token: token };
+  return { token: token, clientId: client.id };
 };
