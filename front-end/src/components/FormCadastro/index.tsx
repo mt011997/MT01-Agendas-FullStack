@@ -19,8 +19,8 @@ export const FormCadastro = () => {
 
   return (
     <ContainerForm>
-      <h2>Crie sua conta</h2>
       <Form onSubmit={handleSubmit(onSubmit)}>
+        <h2>Crie sua conta</h2>
         <label htmlFor="full_name">Nome Completo</label>
         <input
           type="text"
