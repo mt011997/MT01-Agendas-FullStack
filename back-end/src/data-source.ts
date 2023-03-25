@@ -3,7 +3,7 @@ import Client from "./entities/client.entity";
 import Contact from "./entities/contacts.entity";
 import "dotenv/config";
 import "reflect-metadata";
-import { CreateClients1679358940293 } from "./migrations/1679358940293-CreateClients";
+import { InitialMigrate1679776848159 } from "./migrations/1679776848159-InitialMigrate";
 
 const port = process.env.DB_PORT as number | undefined;
 
@@ -14,7 +14,7 @@ const setDataSourceOptions = (): DataSourceOptions => {
       type: "postgres",
       url: process.env.DATABASE_URL,
       entities: [Client, Contact],
-      migrations: [CreateClients1679358940293],
+      migrations: [InitialMigrate1679776848159],
     };
   }
   if (nodeEnv === "test") {
@@ -35,7 +35,7 @@ const setDataSourceOptions = (): DataSourceOptions => {
     logging: true,
     synchronize: false,
     entities: [Client, Contact],
-    migrations: [CreateClients1679358940293],
+    migrations: [InitialMigrate1679776848159],
   };
 };
 const dataSourceOptions = setDataSourceOptions();
