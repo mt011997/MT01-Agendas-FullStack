@@ -20,7 +20,7 @@ export interface iModalCreateContext {
 export const ModalCreateContext = createContext({} as iModalCreateContext);
 
 export const ModalCreateContactsProvider = ({ children }: iContextProps) => {
-  const { setLoading, setContacts, contacts } = useContext(LoginContext)
+  const { setLoading } = useContext(LoginContext)
   const [modalCreateContacts, setModalCreateContacts] = useState(false)
 
 
@@ -31,7 +31,8 @@ export const ModalCreateContactsProvider = ({ children }: iContextProps) => {
     api.defaults.headers.authorization = `Bearer ${token}`;
     await api
       .post("/contacts", newData)
-      .then((res) => {
+      .then(() => {
+        setModalCreateContacts(false)
         toast.success("Contato criado com sucesso!", {
           closeOnClick: true,
           pauseOnHover: true,

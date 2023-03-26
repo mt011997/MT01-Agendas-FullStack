@@ -32,7 +32,6 @@ export const SignUpProvider = ({ children }: iContextProps) => {
   };
 
   const onSubmit = async (data: iCadastroData) => {
-    console.log(data);
     await api
       .post("/clients", data)
       .then(() => {
