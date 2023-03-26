@@ -8,7 +8,7 @@ export const HomePageHeader = () => {
   const { logout } = useContext(DashBoardContext);
   return (
     <Header>
-      <h1>Kenzie Agendas</h1>
+      <h1>MT01 Agenda's</h1>
       <Link onClick={logout} to={"/"}>
         Sair
       </Link>
