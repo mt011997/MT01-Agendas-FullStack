@@ -12,7 +12,7 @@ export const ModalDeleteContacts = () => {
     <ModalSection>
       <ContainerModal>
         <HeaderModal>
-          <span>Tecnologia Detalhes</span>
+          <span>Deletar Contato</span>
           <button onClick={fecharModalDelete}>X</button>
         </HeaderModal>
         <DivButton>
