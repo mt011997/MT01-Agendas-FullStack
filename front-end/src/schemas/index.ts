@@ -16,3 +16,16 @@ export const loginSchema = yup.object().shape({
   email: yup.string().required("Email obrigatório").email("Email inválido"),
   password: yup.string().required("Senha é obrigatória"),
 });
+
+export const editClientSchema = yup.object().shape({
+  password: yup.string(),
+  phone: yup.string(),
+  email: yup.string().email(),
+  full_name: yup.string(),
+})
+
+export const createContactSchema = yup.object().shape({
+  full_name: yup.string().required("Nome obrigatório"),
+  email: yup.string().required("Email obrigatório").email("Email inválido"),
+  phone: yup.string().required("Telefone obrigatório"),
+})
