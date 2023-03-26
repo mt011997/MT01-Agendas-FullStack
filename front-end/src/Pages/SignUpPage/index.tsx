@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";
+import { AnimatedEntranceTop } from "../../components/AnimatedTransitions.tsx";
 import { FormSignUp } from "../../components/FormSignUp";
 import { Load } from "../../components/LoadingScreen";
 import { LoginContext } from "../../contexts/contextLogin";
@@ -13,7 +14,12 @@ export const SignUp = () => {
 
   return (
     <div>
-      {!client ? <FormSignUp /> : <Navigate to="/homepage" replace />}
+      {!client ? 
+      <AnimatedEntranceTop>
+        <FormSignUp /> 
+      </AnimatedEntranceTop>
+      : 
+      <Navigate to="/homepage" replace />}
     </div>
   );
 };

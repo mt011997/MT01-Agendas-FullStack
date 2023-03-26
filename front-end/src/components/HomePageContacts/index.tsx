@@ -1,36 +1,37 @@
 import { useContext } from "react";
 import { LoginContext } from "../../contexts/contextLogin";
-// import { ModalDeleteContext } from "../../contexts/contextModalDelete";
-import { LiTech, UlTech } from "./styled";
+import { ModalDeleteContactsContext } from "../../contexts/contextModalDeleteContacts";
+import { EditModalContactContext } from "../../contexts/contextModalEditContact";
+import { LiContact, UlContact } from "./styled";
 
 export const HomePageContacts = () => {
   const { contacts } = useContext(LoginContext);
-//   const { abrirModalDelete } = useContext(ModalDeleteContext);
+  const { abrirModalDelete } = useContext(ModalDeleteContactsContext);
+  const { abrirModalEditContact } = useContext(EditModalContactContext)
 
   return (
-    <UlTech>
+    <UlContact>
       {contacts.length === 0 ? (
-        <h2>Você não possui nenhum contato no momento! Adicione no botão acima! </h2>
+        <h3>Você não possui nenhum contato no momento! Adicione no botão de <b>+</b> acima! </h3>
       ) : (
         contacts.map((contact) => {
           return (
-            <LiTech
+            <LiContact
               key={contact.id}
-            //   onClick={() => abrirModalDelete(tec.title, tec.id)}
             >
               <h2>Contato: {contact.full_name}</h2>
               <span>Email: {contact.email}</span>
               <span>Telefone: {contact.phone}</span>
-                <button>
+                <button onClick={() => abrirModalEditContact(contact.id)}>
                   Atualizar
                 </button>
-                <button>
+                <button onClick={() => abrirModalDelete(contact.full_name, contact.id)}>
                   Deletar
                 </button>
-            </LiTech>
+            </LiContact>
           );
         })
       )}
-    </UlTech>
+    </UlContact>
   );
 };

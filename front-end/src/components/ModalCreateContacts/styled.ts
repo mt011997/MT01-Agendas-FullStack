@@ -1,11 +1,7 @@
 import styled from "styled-components";
 
-interface ModalSectionProps {
-  modal: boolean;
-}
-
-export const ModalSection = styled.section<ModalSectionProps>`
-  display: ${(props) => (props.modal === true ? "flex" : "none")};
+export const ModalSection = styled.section`
+  display: flex;
   flex-direction: column;
   background-color: #00000080;
   position: fixed;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const UlTech = styled.ul`
+export const UlContact = styled.ul`
   display: flex;
   flex-direction: column;
   max-height: 500px;
@@ -10,12 +10,19 @@ export const UlTech = styled.ul`
   overflow-y: auto;
   gap: 1rem;
   margin-bottom: 1rem;
-  h2 {
+  h3 {
     color: var(--Gray-0);
+    text-align: center;
+    line-height: 25px;
+  }
+  b{
+    display: inline;
+    color: var(--Color-primary);
+    font-size: 23px;
   }
 `;
 
-export const LiTech = styled.li`
+export const LiContact = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -24,10 +31,7 @@ export const LiTech = styled.li`
   gap: 1rem;
   border-radius: 6px;
   padding: 20px 10px;
-  cursor: pointer;
-  &:hover {
-    background-color: var(--Gray-2);
-  }
+
   h2 {
     color: var(--Gray-0);
     font-size: 16px;
@@ -54,6 +58,5 @@ export const LiTech = styled.li`
   button:hover{
     background-color: var(--Color-primary-Focus);
     color: var(--Gray-4);
-    font-weight: 600;
   }
 `;
