@@ -3,26 +3,25 @@ import { DashBoardContext } from "../../contexts/contextDashBoard";
 import { LoginContext } from "../../contexts/contextLogin";
 import { ModalDeleteContactsContext } from "../../contexts/contextModalDeleteContacts";
 import { EditModalContactContext } from "../../contexts/contextModalEditContact";
-import { LiContact, UlContact } from "./styled";
+import { DivMessage, LiContact, UlContact } from "./styled";
 
 export const HomePageContacts = () => {
   const { contacts } = useContext(LoginContext);
   const { findContacts } = useContext(DashBoardContext)
   const { abrirModalDelete } = useContext(ModalDeleteContactsContext);
   const { abrirModalEditContact } = useContext(EditModalContactContext)
-  console.log(contacts, findContacts)
   return (
     <>
-      <div>
+      <DivMessage>
         {contacts.length === 0 ? (
           <h3>Você não possui nenhum contato no momento! Adicione no botão de <b>+</b> acima! </h3>)
           :
           <></>
         }
-      </div>
-      <UlContact>
-          {(findContacts.length > 0 ? findContacts : contacts).map((contact) => {
-            return (
+      </DivMessage>
+      <UlContact length={contacts.length}>
+      {(findContacts.length > 0 ? findContacts : contacts).map((contact) => {
+        return (
               <LiContact
               key={contact.id}
               >
@@ -36,9 +35,9 @@ export const HomePageContacts = () => {
                   Deletar
                 </button>
               </LiContact>
-              );
-            })
-          }
+          );
+        })
+      }
       </UlContact>
     </>
   );
