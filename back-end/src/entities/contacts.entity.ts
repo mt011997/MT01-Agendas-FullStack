@@ -15,10 +15,10 @@ export default class Contact {
   @Column({ length: 130 })
   full_name: string;
 
-  @Column({ length: 50, unique: true })
+  @Column({ length: 50 })
   email: string;
 
-  @Column({ length: 15, unique: true })
+  @Column({ length: 15 })
   phone: string;
 
   @ManyToOne(() => Client, { onDelete: "CASCADE" })

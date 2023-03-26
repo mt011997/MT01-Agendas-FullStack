@@ -1,25 +1,19 @@
 import styled from "styled-components";
 
-export const UlContact = styled.ul`
+interface UlContactProps {
+  length: number;
+}
+
+export const UlContact = styled.ul<UlContactProps>`
   display: flex;
   flex-direction: column;
   max-height: 500px;
-  background-color: var(--Gray-3);
+  background-color: ${(props) => (props.length === 0 ? "none": "var(--Gray-3)")};
   padding: 15px 10px;
   border-radius: 5px;
   overflow-y: auto;
   gap: 1rem;
   margin-bottom: 1rem;
-  h3 {
-    color: var(--Gray-0);
-    text-align: center;
-    line-height: 25px;
-  }
-  b{
-    display: inline;
-    color: var(--Color-primary);
-    font-size: 23px;
-  }
 `;
 
 export const LiContact = styled.li`
@@ -60,3 +54,16 @@ export const LiContact = styled.li`
     color: var(--Gray-4);
   }
 `;
+
+export const DivMessage = styled.div`
+  h3 {
+    color: var(--Gray-0);
+    text-align: center;
+    line-height: 25px;
+  }
+  b{
+    display: inline;
+    color: var(--Color-primary);
+    font-size: 23px;
+  }
+` 
