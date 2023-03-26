@@ -1,6 +1,6 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
-import { CadastroContext } from "../../contexts/contextCadastro";
+import { CadastroContext } from "../../contexts/contextSignUp";
 import { iLoginData, LoginContext } from "../../contexts/contextLogin";
 import { loginSchema } from "../../schemas";
 import { useForm } from "react-hook-form";
