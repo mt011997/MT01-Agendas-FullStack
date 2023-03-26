@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { api } from "../../services/api";
+import { DashBoardContext } from "../contextDashBoard";
 import { LoginContext } from "../contextLogin";
 import { iContextProps } from "../contextSignUp";
 
@@ -21,6 +22,7 @@ export const EditModalContactContext = createContext({} as iEditModalContactCont
 
 export const EditContactModalProvider = ({ children }: iContextProps) => {
   const { setLoading, contacts } = useContext(LoginContext);
+  const { setSearch, setFindContacts } = useContext(DashBoardContext)
   const [modalEditContact, setModalEditContact] = useState(false);
   const [contactId, setContactId] = useState("")
 
@@ -51,6 +53,8 @@ export const EditContactModalProvider = ({ children }: iContextProps) => {
     await api
       .patch(`/contacts/${contactId}`, data)
       .then((res) => {
+        setSearch("")
+        setFindContacts([])
         setModalEditContact(false)
         toast.success("Contato atualizado com sucesso!", {
           closeOnClick: true,
