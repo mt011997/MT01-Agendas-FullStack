@@ -41,7 +41,7 @@ export const LoginContext = createContext({} as iLoginContext);
 
 export const LoginProvider = ({ children }: iContextProps) => {
   const navigate = useNavigate();
-  const [client, setClient] = useState<any>(null);
+  const [client, setClient] = useState<iClient | null>(null);
   const [loading, setLoading] = useState(true);
   const [contacts, setContacts] = useState<iContact[]>([])
 

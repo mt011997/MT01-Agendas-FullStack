@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { api } from "../../services/api";
+import { DashBoardContext } from "../contextDashBoard";
 import { LoginContext } from "../contextLogin";
 import { iContextProps } from "../contextSignUp";
 
@@ -24,6 +25,7 @@ export const ModalDeleteContactsProvider = ({ children }: iContextProps) => {
   const [fullNameContact, setfullNameContact] = useState("");
   const [idContact, setIdContact] = useState("");
   const { setLoading } = useContext(LoginContext);
+  const { setSearch, setFindContacts } = useContext(DashBoardContext)
 
   const abrirModalDelete = (nameContact: string, idCont: string) => {
     setModalDelete(true);
@@ -39,6 +41,8 @@ export const ModalDeleteContactsProvider = ({ children }: iContextProps) => {
     await api
       .delete<iModalDeleteResponse>(`/contacts/${idContact}`)
       .then(() => {
+        setSearch("")
+        setFindContacts([])
         toast.success(`Tecnologia ${fullNameContact} deletado com sucesso!`, {
           closeOnClick: true,
           pauseOnHover: true,
