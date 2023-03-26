@@ -72,6 +72,7 @@ export const LoginProvider = ({ children }: iContextProps) => {
         localStorage.setItem("@Set:User_id", res.data.clientId);
         api.defaults.headers.authorization = `Bearer ${res.data.token}`;
         setClient(res.data);
+        setContacts(res.data.contacts)
         toast.success('Login realizado com sucesso!', {
           position: "top-right",
           autoClose: 1000,
