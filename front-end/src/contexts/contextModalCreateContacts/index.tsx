@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { api } from "../../services/api";
+import { DashBoardContext } from "../contextDashBoard";
 import { LoginContext } from "../contextLogin";
 import { iContextProps } from "../contextSignUp";
 
@@ -21,6 +22,7 @@ export const ModalCreateContext = createContext({} as iModalCreateContext);
 
 export const ModalCreateContactsProvider = ({ children }: iContextProps) => {
   const { setLoading } = useContext(LoginContext)
+  const { setSearch, setFindContacts } = useContext(DashBoardContext)
   const [modalCreateContacts, setModalCreateContacts] = useState(false)
 
 
@@ -32,6 +34,8 @@ export const ModalCreateContactsProvider = ({ children }: iContextProps) => {
     await api
       .post("/contacts", newData)
       .then(() => {
+        setSearch("")
+        setFindContacts([])
         setModalCreateContacts(false)
         toast.success("Contato criado com sucesso!", {
           closeOnClick: true,
