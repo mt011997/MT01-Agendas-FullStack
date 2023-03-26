@@ -37,3 +37,4 @@ export const clientSerializerUpdate: yup.Schema<iClientUpdate> = yup
   });
 
 export const listClients = yup.array(returnClientSerializer);
+
