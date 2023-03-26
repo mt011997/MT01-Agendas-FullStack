@@ -7,8 +7,9 @@ export const clientUpdateService = async (
   clientData: iClientUpdate,
   clientId: string
 ) => {
-  const findClient = await clientRepository.findOneBy({
-    id: clientId,
+  const findClient = await clientRepository.findOne({
+    relations: { contacts: true },
+    where: { id: clientId },
   });
 
   if (!findClient) {
