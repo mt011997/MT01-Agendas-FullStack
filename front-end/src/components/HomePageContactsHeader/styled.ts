@@ -13,9 +13,10 @@ export const Container = styled.div`
   button {
     background-color: var(--Gray-3);
     border: var(--Gray-3);
-    color: var(--Gray-0);
-    font-size: 18px;
-    padding: 5px 10px;
+    color: var(--Color-primary);
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
     border-radius: 5px;
     cursor: pointer;
   }

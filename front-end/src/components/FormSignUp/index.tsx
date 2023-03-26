@@ -56,7 +56,7 @@ export const FormSignUp = () => {
           <label htmlFor="phone">Telefone</label>
           <input
             type="text"
-            placeholder="Digite seu telefone"
+            placeholder="Digite seu telefone. Ex.: 11 999999999"
             {...register("phone")}
           />
           <span>{errors.phone?.message}</span>

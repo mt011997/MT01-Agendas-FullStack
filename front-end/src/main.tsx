@@ -8,6 +8,8 @@ import { LoginProvider } from "./contexts/contextLogin";
 import "./index.css";
 import { ModalProvider } from "./contexts/contextModalEditClient";
 import { ModalCreateContactsProvider } from "./contexts/contextModalCreateContacts";
+import { ModalDeleteContactsProvider } from "./contexts/contextModalDeleteContacts";
+import { EditContactModalProvider } from "./contexts/contextModalEditContact";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
@@ -17,7 +19,11 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           <DashBoardProvider>
             <ModalProvider>
               <ModalCreateContactsProvider>
-                <App />
+                <ModalDeleteContactsProvider>
+                  <EditContactModalProvider>
+                    <App />
+                  </EditContactModalProvider>
+                </ModalDeleteContactsProvider>
               </ModalCreateContactsProvider>
             </ModalProvider>
           </DashBoardProvider>

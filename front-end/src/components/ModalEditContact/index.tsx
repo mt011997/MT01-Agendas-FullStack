@@ -1,27 +1,27 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { iCreateContact, ModalCreateContext } from "../../contexts/contextModalCreateContacts";
-import { createContactSchema } from "../../schemas";
+import { EditModalContactContext, iEditModalContact } from "../../contexts/contextModalEditContact";
+import { editContactSchema } from "../../schemas";
 import { ContainerModal, FormModal, HeaderModal, ModalSection } from "./styled";
 
-export const ModalCreateContacts = () => {
-    const { fecharModalCreate, createContact} = useContext(ModalCreateContext)
+export const ModalEditContact = () => {
+    const { fecharModalEditContact, editContact} = useContext(EditModalContactContext)
     const {
       register,
       handleSubmit,
       formState: { errors },
-    } = useForm<iCreateContact>({
-      resolver: yupResolver(createContactSchema),
+    } = useForm<iEditModalContact>({
+      resolver: yupResolver(editContactSchema),
     });
     return (
         <ModalSection>
           <ContainerModal>
             <HeaderModal>
-              <span>Criar contato</span>
-              <button onClick={fecharModalCreate}>X</button>
+              <span>Editar Dados</span>
+              <button onClick={fecharModalEditContact}>X</button>
             </HeaderModal>
-            <FormModal onSubmit={handleSubmit(createContact)}>
+            <FormModal onSubmit={handleSubmit(editContact)}>
 
               <label htmlFor="full_name">Nome Completo</label>
               <input type="text" placeholder="Nome Completo" {...register("full_name")} />
@@ -32,10 +32,10 @@ export const ModalCreateContacts = () => {
               <span>{errors.email?.message}</span>
 
               <label htmlFor="phone">Telefone</label>
-              <input type="text" placeholder="Telefone" {...register("phone")} />
+              <input type="text" placeholder="Telefone Ex.: 11 999999999" {...register("phone")} />
               <span>{errors.phone?.message}</span>
               
-              <button type="submit">Criar</button>
+              <button type="submit">Atualizar</button>
             </FormModal>
           </ContainerModal>
         </ModalSection>

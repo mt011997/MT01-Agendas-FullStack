@@ -7,7 +7,7 @@ export const HomePageContactsHeader = () => {
 
   return (
     <Container>
-      <h2>Contatos:</h2>
+      <h2>Seus contatos:</h2>
       <button onClick={abrirModalCreate}>+</button>
     </Container>
   );
