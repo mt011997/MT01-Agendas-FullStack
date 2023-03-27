@@ -11,7 +11,7 @@ Para iniciar a Api siga os passos a seguir:
 <br/>
 3 - No terminal digite: "npm install" Para instalar as dependencias.
 <br/>
-4 - No terminal digite: "npm run migration:generate" Para gerar as migrações.
+4 - No terminal digite: "npm run m:run" Para gerar as migrações.
 <br/>
 5 - No terminal digite: "npm run dev" Para iniciar a aplicação.
 </p>
