@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { api } from "../../services/api";
 
 export interface iContextProps {
@@ -21,7 +22,7 @@ interface iCadastroContext {
 
 export const CadastroContext = createContext({} as iCadastroContext);
 
-export const CadastroProvider = ({ children }: iContextProps) => {
+export const SignUpProvider = ({ children }: iContextProps) => {
   const navigate = useNavigate();
   const [showSenha, setShowSenha] = useState(false);
 
@@ -31,14 +32,32 @@ export const CadastroProvider = ({ children }: iContextProps) => {
   };
 
   const onSubmit = async (data: iCadastroData) => {
-    console.log(data);
     await api
       .post("/clients", data)
       .then(() => {
+        toast.success('Cadastro realizado com sucesso!', {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
         navigate("/");
       })
       .catch((err) => {
-        console.error(err.response.data.message);
+        toast.error("Telefone ou email já existentes" , {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
       });
   };
 

@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";
-import { FormCadastro } from "../../components/FormCadastro";
+import { AnimatedEntranceTop } from "../../components/AnimatedTransitions.tsx";
+import { FormSignUp } from "../../components/FormSignUp";
 import { Load } from "../../components/LoadingScreen";
 import { LoginContext } from "../../contexts/contextLogin";
 
-export const Cadastro = () => {
+export const SignUp = () => {
   const { client, loading } = useContext(LoginContext);
 
   if (loading) {
@@ -13,7 +14,12 @@ export const Cadastro = () => {
 
   return (
     <div>
-      {!client ? <FormCadastro /> : <Navigate to="/homepage" replace />}
+      {!client ? 
+      <AnimatedEntranceTop>
+        <FormSignUp /> 
+      </AnimatedEntranceTop>
+      : 
+      <Navigate to="/homepage" replace />}
     </div>
   );
 };

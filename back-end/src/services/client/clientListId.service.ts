@@ -1,9 +1,9 @@
 import { AppError } from "../../errors/errors";
 import { clientRepository } from "../../repositories/clientRepository";
-import { listClients } from "../../serializers/client/client.serializers";
+import { returnClientSerializer } from "../../serializers/client/client.serializers";
 
 export const listClientIdService = async (id: string) => {
-  const client = await clientRepository.find({
+  const client = await clientRepository.findOne({
     relations: { contacts: true },
     where: { id: id },
   });
@@ -12,7 +12,7 @@ export const listClientIdService = async (id: string) => {
     throw new AppError(404, "Client not exist");
   }
 
-  const validateClient = await listClients.validate(client, {
+  const validateClient = await returnClientSerializer.validate(client, {
     stripUnknown: true,
   });
 

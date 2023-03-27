@@ -1,13 +1,13 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { formSchema } from "../../schemas";
-import { CadastroContext, iCadastroData } from "../../contexts/contextCadastro";
+import { CadastroContext, iCadastroData } from "../../contexts/contextSignUp";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useContext } from "react";
 import { ContainerForm, ContainerGeral, DivSenha, Form } from "./styled";
 import { Link } from "react-router-dom";
 
-export const FormCadastro = () => {
+export const FormSignUp = () => {
   const {
     register,
     handleSubmit,
@@ -56,7 +56,7 @@ export const FormCadastro = () => {
           <label htmlFor="phone">Telefone</label>
           <input
             type="text"
-            placeholder="Digite seu telefone"
+            placeholder="Digite seu telefone. Ex.: 11 999999999"
             {...register("phone")}
           />
           <span>{errors.phone?.message}</span>

@@ -3,8 +3,7 @@ import Client from "./entities/client.entity";
 import Contact from "./entities/contacts.entity";
 import "dotenv/config";
 import "reflect-metadata";
-import { CreateMigrate1679874754259 } from "./migrations/1679874754259-CreateMigrate";
-
+import { CreateClients1679358940293 } from "./migrations/1679358940293-CreateClients";
 
 const port = process.env.DB_PORT as number | undefined;
 
@@ -36,7 +35,7 @@ const setDataSourceOptions = (): DataSourceOptions => {
     logging: true,
     synchronize: false,
     entities: [Client, Contact],
-    migrations: [CreateMigrate1679874754259],
+    migrations: [CreateClients1679358940293],
   };
 };
 const dataSourceOptions = setDataSourceOptions();
