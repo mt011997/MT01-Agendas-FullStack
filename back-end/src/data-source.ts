@@ -3,25 +3,18 @@ import Client from "./entities/client.entity";
 import Contact from "./entities/contacts.entity";
 import "dotenv/config";
 import "reflect-metadata";
+import { InitialMigrate1679776848159 } from "./migrations/1679776848159-InitialMigrate";
 
 const port = process.env.DB_PORT as number | undefined;
 
 const setDataSourceOptions = (): DataSourceOptions => {
-  
-  const entitiesPath: string = path.join(__dirname, "./entities/**.{js,ts}");
-  const migrationsPath: string = path.join(
-    __dirname,
-    "./migrations/**.{js,ts}"
-  );
-  
   const nodeEnv = process.env.NODE_ENV;
-  
-    if (nodeEnv === "production") {
+  if (nodeEnv === "production") {
     return {
       type: "postgres",
       url: process.env.DATABASE_URL,
-      entities: [entitiesPath],
-      migrations: [migrationsPath],
+      entities: [Client, Contact],
+      migrations: [InitialMigrate1679776848159],
     };
   }
   if (nodeEnv === "test") {
@@ -42,9 +35,8 @@ const setDataSourceOptions = (): DataSourceOptions => {
     logging: true,
     synchronize: false,
     entities: [Client, Contact],
-    migrations: [],
+    migrations: [InitialMigrate1679776848159],
   };
 };
-
 const dataSourceOptions = setDataSourceOptions();
 export const AppDataSource = new DataSource(dataSourceOptions);
