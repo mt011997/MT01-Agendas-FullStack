@@ -5,6 +5,15 @@
 </h2>
 
 <p align = "center">
+Para iniciar a Api siga os passos a seguir:
+
+1 - Na pasta "back-end" crie um .env e preencha os campos informado no .env.exemple passando suas credencias. 
+2 - No terminal digite: "cd back-end".
+3 - No terminal digite: "npm run dev" ou "yarn dev".
+</p>
+
+
+<p align = "center">
 Este é o backend da aplicação Register-FullStack para gerenciamento de clientes e contatos.
 </p>
 
@@ -267,3 +276,15 @@ Caso dê tudo certo, a resposta será assim:
     "message": "Contact Not Found"
 }
 ```
+
+<h2 align="center" style='font-family: sans-serif'>
+	Register-FullStack | API REST (Front-end)
+</h2>
+
+<p align = "center">
+Para iniciar o front End siga os passos a seguir:
+
+1 - No terminal digite: "cd front-end".
+2 - No terminal digite: "npm run dev" ou "yarn dev".
+3 - Clique no link que foi informado no terminal após a execução do comando segurando a tecla "ctrl"
+</p>
