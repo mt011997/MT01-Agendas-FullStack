@@ -8,7 +8,9 @@
 Para iniciar a Api siga os passos a seguir:
 
 1 - Na pasta "back-end" crie um .env e preencha os campos informado no .env.exemple passando suas credencias. 
+<br/>
 2 - No terminal digite: "cd back-end".
+<br/>
 3 - No terminal digite: "npm run dev" ou "yarn dev".
 </p>
 
@@ -285,6 +287,8 @@ Caso dê tudo certo, a resposta será assim:
 Para iniciar o front End siga os passos a seguir:
 
 1 - No terminal digite: "cd front-end".
+<br/>
 2 - No terminal digite: "npm run dev" ou "yarn dev".
+<br/>
 3 - Clique no link que foi informado no terminal após a execução do comando segurando a tecla "ctrl"
 </p>
