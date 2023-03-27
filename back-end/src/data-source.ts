@@ -14,7 +14,7 @@ const setDataSourceOptions = (): DataSourceOptions => {
       type: "postgres",
       url: process.env.DATABASE_URL,
       entities: [Client, Contact],
-      migrations: [InitialMigrate1679776848159],
+      migrations: [],
     };
   }
   if (nodeEnv === "test") {
@@ -35,7 +35,7 @@ const setDataSourceOptions = (): DataSourceOptions => {
     logging: true,
     synchronize: false,
     entities: [Client, Contact],
-    migrations: [InitialMigrate1679776848159],
+    migrations: [],
   };
 };
 const dataSourceOptions = setDataSourceOptions();
