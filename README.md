@@ -9,9 +9,11 @@ Para iniciar a Api siga os passos a seguir:
 <br/>
 2 - No terminal digite: "cd back-end".
 <br/>
-3 - No terminal digite: "npm run m:run"
+3 - No terminal digite: "npm install" Para instalar as dependencias.
 <br/>
-4 - No terminal digite: "npm run dev".
+4 - No terminal digite: "npm run migration:generate" Para gerar as migrações.
+<br/>
+5 - No terminal digite: "npm run dev" Para iniciar a aplicação.
 </p>
 
 
@@ -288,7 +290,9 @@ Para iniciar o front End siga os passos a seguir:
 
 1 - No terminal digite: "cd front-end".
 <br/>
-2 - No terminal digite: "npm run dev".
+2 - No terminal digite: "npm install" Para instalar as dependencias.
 <br/>
-3 - Clique no link que foi informado no terminal após a execução do comando segurando a tecla "ctrl"
+3 - No terminal digite: "npm run dev" Para iniciar a aplicação.
+<br/>
+4 - Clique no link que foi informado no terminal após a execução do comando segurando a tecla "ctrl"
 </p>
