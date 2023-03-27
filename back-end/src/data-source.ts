@@ -3,7 +3,6 @@ import Client from "./entities/client.entity";
 import Contact from "./entities/contacts.entity";
 import "dotenv/config";
 import "reflect-metadata";
-import { InitialMigrate1679776848159 } from "./migrations/1679776848159-InitialMigrate";
 
 const port = process.env.DB_PORT as number | undefined;
 
