@@ -9,11 +9,9 @@ Para iniciar a Api siga os passos a seguir:
 <br/>
 2 - No terminal digite: "cd back-end".
 <br/>
-3 - No terminal digite: "npm run migration:generate" 
+3 - No terminal digite: "npm run m:run"
 <br/>
-4 - No terminal digite: "npm run m:run"
-<br/>
-5 - No terminal digite: "npm run dev".
+4 - No terminal digite: "npm run dev".
 </p>
 
 
