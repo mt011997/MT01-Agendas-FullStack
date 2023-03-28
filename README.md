@@ -1,5 +1,5 @@
 <h2 align="center" style='font-family: sans-serif'>
-	Register-FullStack | API REST (Back-end)
+	MT01-Agendas | API REST (Back-end)
 </h2>
 
 <p align = "center">
@@ -282,7 +282,7 @@ Caso dê tudo certo, a resposta será assim:
 ```
 
 <h2 align="center" style='font-family: sans-serif'>
-	Register-FullStack | API REST (Front-end)
+	MT01-Agendas | API REST (Front-end)
 </h2>
 
 <p align = "center">
