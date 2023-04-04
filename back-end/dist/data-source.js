@@ -9,16 +9,19 @@ const client_entity_1 = __importDefault(require("./entities/client.entity"));
 const contacts_entity_1 = __importDefault(require("./entities/contacts.entity"));
 require("dotenv/config");
 require("reflect-metadata");
-const _1679776848159_InitialMigrate_1 = require("./migrations/1679776848159-InitialMigrate");
+const _1679874754259_CreateMigrate_1 = require("./migrations/1679874754259-CreateMigrate");
+const path_1 = __importDefault(require("path"));
 const port = process.env.DB_PORT;
 const setDataSourceOptions = () => {
+    const entitiesPath = path_1.default.join(__dirname, "./entities/**.{js,ts}");
+    const migrationsPath = path_1.default.join(__dirname, "./migrations/**.{js,ts}");
     const nodeEnv = process.env.NODE_ENV;
     if (nodeEnv === "production") {
         return {
             type: "postgres",
             url: process.env.DATABASE_URL,
-            entities: [client_entity_1.default, contacts_entity_1.default],
-            migrations: [_1679776848159_InitialMigrate_1.InitialMigrate1679776848159],
+            entities: [entitiesPath],
+            migrations: [migrationsPath],
         };
     }
     if (nodeEnv === "test") {
@@ -39,7 +42,7 @@ const setDataSourceOptions = () => {
         logging: true,
         synchronize: false,
         entities: [client_entity_1.default, contacts_entity_1.default],
-        migrations: [_1679776848159_InitialMigrate_1.InitialMigrate1679776848159],
+        migrations: [_1679874754259_CreateMigrate_1.CreateMigrate1679874754259],
     };
 };
 const dataSourceOptions = setDataSourceOptions();
