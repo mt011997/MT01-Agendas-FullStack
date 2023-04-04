@@ -4,18 +4,23 @@ import Contact from "./entities/contacts.entity";
 import "dotenv/config";
 import "reflect-metadata";
 import { CreateMigrate1679874754259 } from "./migrations/1679874754259-CreateMigrate";
-
+import path from "path";
 
 const port = process.env.DB_PORT as number | undefined;
 
 const setDataSourceOptions = (): DataSourceOptions => {
+  const entitiesPath: string = path.join(__dirname, "./entities/**.{js,ts}");
+  const migrationsPath: string = path.join(
+    __dirname,
+    "./migrations/**.{js,ts}"
+  );
   const nodeEnv = process.env.NODE_ENV;
   if (nodeEnv === "production") {
     return {
       type: "postgres",
       url: process.env.DATABASE_URL,
-      entities: [Client, Contact],
-      migrations: [CreateMigrate1679874754259],
+      entities: [entitiesPath],
+      migrations: [migrationsPath],
     };
   }
   if (nodeEnv === "test") {

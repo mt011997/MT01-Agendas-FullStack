@@ -9,7 +9,8 @@ const data_source_1 = require("./data-source");
     await data_source_1.AppDataSource.initialize().catch((err) => {
         console.error("Error during Data Source initialization", err);
     });
-    app_1.default.listen(3000, () => {
-        console.log(`app is running on http://localhost:3000}`);
+    const PORT = process.env.PORT || 3000;
+    app_1.default.listen(PORT, () => {
+        console.log(`app is running on http://localhost:${PORT}}`);
     });
 })();
